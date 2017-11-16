@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import ShoppingCart from './ShoppingCart';
 import AddNewItem from './AddNewItem';
+import { addItem } from '../actions';
 
 class App extends Component {
   constructor(props) {
@@ -29,4 +31,16 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+      shoppingList: state.items
+  };
+}
+
+const mapActionsToProps = {
+  addItem
+};
+
+export default connect(mapStateToProps, mapActionsToProps)(App);
+
+// export default connect(mapStateToProps)(App);

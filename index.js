@@ -3,6 +3,9 @@ var app = express();
 const bodyParser = require('body-parser');
 var pg = require("pg");
 
+// app.use(express.static('client/build'));
+app.use(bodyParser.json());
+
 var pool = new pg.Pool({
     user: "brennan",
     password: "",
@@ -35,7 +38,7 @@ app.delete ('/api/items/:id', function(req,res){
     
     pool.query('DELETE FROM item_database WHERE id = $1::int',[id]).then(function(){
         res.status(204); // 204 deleted
-        res.send ("DELETED")
+        res.send ("DELETED");
     });
 });
 

@@ -4,7 +4,7 @@ import ShoppingCartItem from "./ShoppingCartItem";
 class ShoppingCart extends Component {
   render() {
 
-    let shoppingCartTotal = 0
+    let shoppingCartTotal = 0;
 
     const ItemsInCart = this.props.items.map(item => {
       shoppingCartTotal += Number(item.price);

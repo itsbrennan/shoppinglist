@@ -10,11 +10,18 @@ import reducer from './reducers';
 import thunkMiddleware from "redux-thunk";
 import {fetchShoppingList} from './actions/index';
 
+// Create the redux store with two middleware
 const store = createStore(
     reducer,
-    applyMiddleware( createLogger() ) // Enable Redux logging which is handy for developers.
+    applyMiddleware(
+        // thunk works behind the scenes to allow us to make async actions. Without
+        // it, the code in actions/index.js would not work.
+        thunkMiddleware,
+        createLogger() // just to help us see what's going on
+    )
 );
 
+// Trigger the fetchShoppingList "action"
 store.dispatch(fetchShoppingList());
 
 ReactDOM.render(

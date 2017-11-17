@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ShoppingCart from './ShoppingCart';
 import AddNewItem from './AddNewItem';
-import { addItem } from '../actions';
+import { addItemToDatabase } from '../actions';
 
 class App extends Component {
   constructor(props) {
@@ -38,9 +38,7 @@ function mapStateToProps(state) {
 }
 
 const mapActionsToProps = {
-  addItem
+  addItemToDatabase
 };
 
 export default connect(mapStateToProps, mapActionsToProps)(App);
-
-// export default connect(mapStateToProps)(App);

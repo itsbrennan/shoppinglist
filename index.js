@@ -3,6 +3,11 @@ var app = express();
 const bodyParser = require('body-parser');
 var pg = require("pg");
 
+
+app.use(express.static('client/build'));
+app.use(bodyParser.json());
+app.use(express.static('client/build'));
+app.use(bodyParser.json());
 // app.use(express.static('client/build'));
 app.use(bodyParser.json());
 
